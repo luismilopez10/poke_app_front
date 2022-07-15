@@ -1,13 +1,10 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { RootState } from '../../app/store'
 import { editPokemon, pokemonType } from '../../features/PokemonSlice'
 import './PokemonCard.css'
 
 const PokemonCard = (props: pokemonType) => {
-  
-  const {user} = useSelector((state:RootState) => state.logged);
 
   const dispatch = useDispatch();
 

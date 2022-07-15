@@ -17,8 +17,6 @@ function App() {
 
   const dispatch = useAppDispatch();
 
-  const goHome = user !== null ? '/pokelist' : '/login';
-
   useEffect(() => {
     if (status === posibleStatus.IDLE) {
         for (let i = 1; i <= 50; i++) {

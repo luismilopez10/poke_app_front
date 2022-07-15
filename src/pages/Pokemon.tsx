@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { RootState } from '../app/store'
 import PokemonCard from '../components/Pokemon/PokemonCard'
@@ -7,7 +7,7 @@ import './Pokemon.css'
 
 const Pokemon = () => {
 
-    const {user} = useSelector((state:RootState) => state.logged);
+    const { user } = useSelector((state: RootState) => state.logged);
     const getPokemonToShow = useSelector((state:RootState) => state.pokemon.pokemon);
     const navigate = useNavigate();
 

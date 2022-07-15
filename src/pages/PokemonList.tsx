@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { getAllPokemons } from '../actions/pokemon/getAllPokemons';
-import { posibleStatus } from '../app/posibleStatus';
-import { RootState, useAppDispatch } from '../app/store';
+import { RootState } from '../app/store';
 import PokemonCard from '../components/Pokemon/PokemonCard';
-import { selectPokemonsState, selectPokemonsStatus } from '../features/PokemonSlice';
+import { selectPokemonsState } from '../features/PokemonSlice';
 import './PokemonList.css'
 
 const PokemonList = () => {
@@ -39,7 +37,7 @@ const PokemonList = () => {
                     .filter((filteredPokemon) => {
                         if (searchPokemon === "") {
                             return filteredPokemon;
-                        } else if (filteredPokemon.name.toLocaleLowerCase().includes(searchPokemon)) {
+                        } else if (filteredPokemon.name.toLocaleLowerCase().includes(searchPokemon.toLocaleLowerCase())) {
                             return filteredPokemon;
                         }
                         return false;
