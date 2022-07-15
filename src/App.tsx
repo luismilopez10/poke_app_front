@@ -1,33 +1,48 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import { useEffect } from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Navbar from './components/Navbars/Navbar';
+import PokemonList from './pages/PokemonList';
 import './App.css'
+import Pokemon from './pages/Pokemon';
+import Login from './pages/Login';
+import { useSelector } from 'react-redux';
+import { selectPokemonsStatus } from './features/PokemonSlice';
+import { posibleStatus } from './app/posibleStatus';
+import { getAllPokemons } from './actions/pokemon/getAllPokemons';
+import { useAppDispatch } from './app/store';
+
+const user = "";
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const dispatch = useAppDispatch();
+
+  const goHome = user !== null ? '/pokelist' : '/login';
+
+  useEffect(() => {
+    if (status === posibleStatus.IDLE) {
+        for (let i = 1; i <= 50; i++) {
+            dispatch(getAllPokemons(i))
+        }
+    }
+
+}, [dispatch])
+
+const status = useSelector(selectPokemonsStatus());
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+    <BrowserRouter>
+      
+      <Navbar />
+
+      <Routes>
+        <Route path="/" element={<PokemonList />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/pokelist" element={<PokemonList />} />
+        <Route path="/pokemon" element={<Pokemon />} />
+      </Routes>
+      
+    </BrowserRouter>
   )
 }
 

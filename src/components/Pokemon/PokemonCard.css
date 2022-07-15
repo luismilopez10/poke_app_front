@@ -1,0 +1,101 @@
+.pokemon {
+  width: 170px;
+  height: 231px;
+  background-size: cover;
+  border-radius: 10px;
+  /* z-index: 0; */
+  overflow: hidden;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.75);
+  text-align: center;
+  margin: 10px;
+  padding: 15px;
+  background-color: #ededed;
+}
+
+.pokemon__favorite {
+  display: block;
+  margin-top: 1rem;
+}
+
+.card-pokemon {
+  flex: 1 150px;
+  padding: 2px 2px 2px 2px;
+  margin-top: 50px;
+  margin-right: 2px;
+  margin-left: 2px;
+}
+
+.pokemon__title {
+  font-size: 16px;
+  padding-bottom: 2px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+.pokemon__description {
+  font-size: 14px;
+  padding: 0 14px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-bottom: 0rem;
+}
+
+.pokemon__orderbutton {
+  font-size: 14px;
+  color: #fff;
+  border: none;
+  text-align: center;
+  padding: 6px 10px;
+  border-radius: 25px;
+  background: linear-gradient(to right, #439949 0%, #28632e 100%);
+  margin-right: 15px;
+  margin-left: 5px;
+}
+
+.pokemon__orderbutton:hover {
+  background: linear-gradient(to left, #46a14d 0%, #35803b 100%);
+}
+
+.pokemon__button {
+  width: 85px;
+  font-size: 14px;
+  color: #fff;
+  border: none;
+  text-align: center;
+  padding: 6px 17px;
+  margin-top: 15px;
+  border-radius: 25px;
+  background: linear-gradient(to right, #4590fb 0%, #6aa5f8 100%);
+  margin: 15px 15px 50px 15px;
+}
+
+.pokemon__button:hover {
+  background: linear-gradient(to left, #4590fb 0%, #6aa5f8 100%);
+  /* margin: 20px 0 50px 0; */
+}
+
+.pokemon__link {
+  text-decoration: none;
+  color: #000;
+}
+
+@media (min-width: 300px) {
+  .pokemon {
+    width: 230px;
+  }
+}
+
+@media (min-width: 600px) {
+  .pokemon {
+    width: 200px;
+  }
+}
+
+@media (min-width: 900px) {
+  .pokemon {
+    width: 170px;
+  }
+}
